@@ -47,12 +47,6 @@ function addGenre(genre) {
         fetch(`https://opentdb.com/api.php?amount=1&category=${genre.id}&difficulty=${level}&type=boolean`)
             .then(response => response.json())
             .then(data => {
-                // Not enough data to get 10 items per difficulty level and get a random
-                // question using Math.random() and passing it through instead of 0
-                // eg: if amount=10 above, you could do:
-                // cont randomNumber = Math.floor(Math.random() * 10)
-                // and pass through randomNumber, so:
-                // data.results[randomNumber].question
                 console.log(data)
                 card.setAttribute('data-question', data.results[0].question)
                 card.setAttribute('data-answer', data.results[0].correct_answer)
